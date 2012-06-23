@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ staticpage.name }}{% endblock %}
+    
+{% block content %}
+
+    <div class="row">
+        <div class="span12">
+            {{ staticpage.content|safe }}
+      
+            <hr />
+            <a href="{% url 'site-index' %}" class="btn small">&laquo; {% trans "Go back" %}</a>
+
+            <div class="pageinfo">
+                {% trans "last updated" %} {{ staticpage.last_update }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

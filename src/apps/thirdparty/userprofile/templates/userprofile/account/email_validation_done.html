@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% if successful %}{% trans 'E-mail validation successful' %}{% else %}{% trans 'E-mail change unsuccessful' %}{% endif %}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="span12">
+            {% if successful %}
+                <p>{% trans "E-mail address validated successfully" %}.</p>
+	        {% else %}
+	            <p>{% trans "The key you received via e-mail is no longer valid. Please try the e-mail validation process again" %}.</p>
+	        {% endif %}
+	        
+	        <hr/>
+	        
+	        <h3>{% trans "E-mail validation process" %}</h3>
+            <p>{% trans "You can manage the e-mail validation process from the" %} <a href="{% url 'profile_overview' %}">{% trans "overview page" %}.</p>
+        </div>
+    </div>
+
+{% endblock %}

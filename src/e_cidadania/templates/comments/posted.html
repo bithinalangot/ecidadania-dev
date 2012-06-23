@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Thanks for commenting" %}.{% endblock %}
+
+{% block content %}
+    <h1>{% trans "Thank you for your comment" %}.</h1>
+    <hr />
+    {% if request.META.HTTP_REFERER %}
+        <a href="{{ request.META.HTTP_REFERER }}" class="btn small">&laquo; {% trans "Go back" %}</a>
+    {% else %}
+        <a href="{% url 'site-index' %}" class="btn_small">&laquo; {% trans "Go back" %}</a>
+    {% endif %}
+
+{% endblock %}

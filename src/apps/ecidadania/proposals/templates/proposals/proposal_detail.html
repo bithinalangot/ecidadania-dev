@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load comments %}
+
+{% block title %}{% trans "View proposal" %} {{ proposal.id }} {% endblock %}
+{% block logo %}
+    {% if get_place %}
+        <a href="{{ get_place.get_absolute_url }}"><img src="{{ MEDIA_URL }}/{{ get_place.logo }}" /></a>
+    {% endif %}
+{% endblock %}
+
+{% block banner %}
+    {% if get_place %}
+        <img src="{{ MEDIA_URL }}/{{ get_place.banner }}" />
+    {% endif %}
+{% endblock %}
+
+{% block extrajs %}
+    <script type="text/javascript">
+        function upvote(proposal) {
+            var request = $.ajax({
+                type: "POST",
+                url: "../add_support_vote/",
+                data: { propid: proposal },
+               success: function(data)
+               {
+
+               var cur_votes = $("div.span1 p");
+               cur_votes.text(cur_votes.text()*1+1);
+               $("div.span1 button").attr('disabled', 'disabled');
+
+               }
+
+            });
+
+          /*  request.done(function(msg) {
+                var cur_votes = parseInt($(".span1 p").html());
+             //   var votes = cur_votes + 1;
+                $(".span1 p").html(votes);
+                $(".span1 button").attr('disabled', 'disabled');
+            });*/
+
+            request.fail(function(jqXHR, textStatus) {
+                $("#jsnotify").notify("create", {
+                    title:"Couldn't vote the proposal",
+                    text:"There has been an error." + textStatus,
+                    icon:"alert.png"
+                });
+            })
+         }
+    </script>
+{% endblock %}
+
+{% block space %}
+    <a class="brand" href="{{ get_place.get_absolute_url }}">{{ get_place.name }}</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="span12">
+            <div class="row proposal-wrapper">
+                <div class="span1">
+                    <p style="line-height:30px;font-size:30px;margin-left:5px;">{{ support_votes_count }}</p>
+                    <button style="margin-left:-15px;" onclick="upvote({{ proposal.id }})" class="btn btn-small" {% if user in proposal.support_votes.all %}disabled="disabled"{% endif %}>{% trans "support" %}</button>
+                </div>
+                <div class="span10">
+                    <div class="proposal-title">{{ proposal.title }}</div>
+                    <div class="proposal-message">{{ proposal.description|safe }}</div>
+                    <div class="proposal-creator">{% trans "proposed by " %} {{ proposal.author }} {% trans " at " %} {{ proposal.pub_date }}</div>
+                </div>
+            </div>
+
+            <p>{% render_comment_list for proposal %}</p>
+      
+            <p>{% render_comment_form for proposal %}</p>
+        </div>
+    </div>
+
+{% endblock %}

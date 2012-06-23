@@ -1,0 +1,56 @@
+Traducións
+==========
+
+Para as traducións utilizamos dúas ferramentas:
+
+- django-rosetta
+- gettext
+
+Ambas formas de traducir son sinxelas grazas ao *middleware* de django.
+
+En vez de facer un ficheiro de tradución global, decidimos manter un
+ficheiro de tradución para cada aplicación, de esa forma aínda que se cambien os
+módulos, as traducións manteranse.
+
+
+Traducindo con rosetta
+----------------------
+
+Para realizar traducións con rosetta necesitarás unha cuenta no sistema e estar
+no grupo **"tradutores"**. Unha vez consigas iso, o demais é simple.
+
+Tan só tes que acceder á `URL de tradución`_ e o primeiro que verás será
+unha lista cos idiomas dispoñibles para traducir.
+
+.. _URL de tradución: http://ecidadania.org/rosetta
+
+.. image:: ../../images/rosetta1.png
+    :align: center
+
+Fai clic no compoñente que queiras traducir e empeza (a tradución realízase
+dende o inglés aos demais idiomas). Se te atascas nalgún momento podes
+utilizar a opción "Suxerencia", que fará unha petición a Google Translate e poñerá
+a tradución máis oportuna.
+
+.. warning:: Nunca confíes no resultado do botón "Suxerir". En moitas ocasións
+             equivocarase.
+
+Traducindo con gettext
+----------------------
+
+Gettext é unha ferramenta ben coñecida por todos os tradutores arredor do
+mundo xa que é un estándar. Grazas ao *middleware* de django, o traballo será
+mínimo, só teremos que editar os arquivos .po que hai no código fonte.
+
+.. image:: ../../images/gettext1.png
+    :align: center
+
+Os ficheiros soen encontrarse nun directorio chamado **locale** dentro do módulo.
+Nel poderás encontrar directorios cos códigos de país (es_ES, en_GB, gl_ES, etc.)
+e dentro deles os ficheros .PO e .MO.
+
+Para traducir, debes editar o ficheiro .PO que é un ficheiro de texto plano.
+Os ficheros .MO son a versión compilada do .PO para que o ordenador poida
+entendelos.
+
+.. warning:: Establecer un fluxo de traballo para os tradutores e explicalo.

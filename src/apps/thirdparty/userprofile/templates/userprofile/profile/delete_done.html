@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Profile removed" %}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="span12">
+            <h3>{% trans "Personal data removed" %}</h3>
+            
+            <p>{% trans "Your profile information has been removed successfully." %}</p>
+            <a href="/">&laquo; {% trans "Back to home page" %}</a></br>
+            <a href="{% url 'profile_overview' %}">&laquo; {% trans "Back to your profile" %}</a>
+        </div>
+    </div>
+
+{% endblock %}

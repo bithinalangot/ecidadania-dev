@@ -1,0 +1,601 @@
+/*
+    Copyright (c) 2010-2012 Cidadanía Coop.
+    Written by: Oscar Carballal Prego <oscar.carballal@cidadania.coop>
+
+    This file is part of the e-cidadania.
+
+    Distributed under terms of the GPLv3 license.
+*/
+
+/* HTML TAGS DEFINITION */
+body {
+	background: #FAFAFA;
+	padding: 0;
+	margin: 0;
+	font-family: Verdana, "Lucida Sans", Arial;
+	font-size: 12px;
+	color: #000;
+	cursor: default;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	border: none;
+}
+/* END HTML TAGS DEFINITION */
+
+/* COMMON CUSTOMIZATIONS */
+hr { /* This hr replaces the bootstrap one */
+    border-bottom: 1px solid #DDD;
+}
+
+.hidden {
+    display: none;
+}
+
+.error {
+    background: #DDBBBB;
+    border: 1px solid #FF6666;
+}
+
+.help-inline {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    margin-bottom: 9px;
+    vertical-align: middle;
+    padding-left: 5px;
+    color: #F00;
+}
+
+@font-face {
+    font-family: "SansationRegular";
+    src: url('http://www.fontsforweb.com/public/fonts/424/SansationRegular.eot');
+    src: local("Sansation"), url('http://www.fontsforweb.com/public/fonts/424/SansationRegular.ttf') format("truetype");
+}
+
+#logo {
+    float: left;
+    /* The logo image must be 75px height */
+    width: 150px;
+    height: 105px;
+    padding: 25px 37px 0px 37px;
+}
+
+#banner {
+    float: left;
+    height: 105px;
+    padding-top: 25px;
+}
+
+#jsnotify {
+    margin-top: 45px;
+}
+
+/*.content {*/
+/*    min-height: 500px;*/
+/*}*/
+
+footer {
+    background: #EEE;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #DDD;
+    margin-bottom: 15px;
+    border-top: 1px solid #DDD;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+/* END COMMON CUSTOMIZATIONS */
+
+/* MAIN INDEX */
+.introtitle {
+    font-size: 3em;
+}
+
+.languageform {
+    margin:0px;
+}
+
+.languageform img {
+    float:left; 
+    padding-right:15px;
+}
+/* END MAIN INDEX */
+
+/* SPACE INDEX */
+.posttitle {
+    border-bottom: 1px solid #DDD;
+    font-weight:normal;
+}
+
+.postinfo {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #DDD;
+    background: #EEE;
+}
+/* END SPACE INDEX */
+
+/* NEWS LIST/ARCHIVE */
+.listitem {
+    width: 100%;
+    color: #000;
+    margin: 20px 0 20px 0;
+}
+
+.listmonth {
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.listdate {
+    font-size: 1.5em;
+    color: #000;
+    float: left;
+    padding: 10px;
+    border-right: 1px solid #DDD;
+    margin-right: 10px;
+}
+
+.listtitle {
+    font-size: 1.5em;
+    color: #000;
+    padding: 10px;
+}
+/* END NEWS LIST/ARCHIVE */
+
+/* COMMENT LIST */
+.comment {
+    border-right: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+}
+
+.comment_data {
+    background: #EEE;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.comment_text {
+    padding: 0px 10px 0px 10px;
+}
+
+.commentform {
+    border: 1px solid #DDD;
+    background: #EEE;
+    padding: 20px 0 20px 0;
+}
+#comments {
+    margin-top: 40px;
+}
+
+#ctitle {
+    font-size: 2em;
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
+
+#comment {
+    margin: 10px;
+}
+
+#comment .comment_text {
+    margin: 20px;
+    font-size: 14px;
+}
+
+#comment .comment_data {
+    margin: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: #CCC;
+    padding: 5px;
+}
+
+/* END COMMENT LIST*/
+
+/* PROPOSAL STYLES */
+.proposal-wrapper {
+    background: none;
+    border: 1px solid #DDD;
+    padding: 10px;
+    /* Fancy round borders for Webkit, Gecko and standard
+       implementations */
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    -moz-border-radius-bottomleft: 7px;
+    -moz-border-radius-bottomright: 7px;
+    -webkit-border-bottom-left-radius: 7px;
+    -webkit-border-bottom-right-radius: 7px;
+}
+
+#votes {
+    float: left;
+    display: block;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+#proposal {
+    float: left;
+    margin: 10px;
+    width: 80%;
+}
+
+.proposal-title {
+    font-size: 1.7em;
+    margin-bottom: 10px;
+
+}
+
+.proposal-message {
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.proposal-creator {
+    font-size: 10px;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+/* END PROPOSAL STYLES */
+
+/* NEWS */
+.post {
+    width: 100%;
+    /* border-bottom: 5px solid #aaa;*/
+    background: #EEE;
+    margin: 20px 5px 20px 5px;
+    padding: 5px;
+    -webkit-border-top-left-radius: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-bottomright: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden;
+}
+
+.post h1 {
+    padding-bottom: 3px;
+    margin: -30px 15px 20px 15px;
+    font-size: 2em;
+    font-family: 'SansationRegular';
+    border-bottom: 3px solid #999;
+    margin-top: 5px;
+}
+
+.post h4 {
+    font-size: 0.95em;
+    color: #000;
+    margin-top: -12px;
+    margin-left: 16px;
+    font-weight: normal;
+}
+.post a {
+    color: #333;
+}
+
+.post a:hover {
+    color: #aaa;
+    text-decoration: underline;
+}
+
+.post p {
+    font-size: 1em;
+    text-indent: 15px;
+    text-align: justify;
+    margin: 15px;
+}
+
+.post img {
+    margin: 10px;
+}
+
+
+/* END NEWS */
+
+/* PAGES */
+.buttons {
+    margin-top: -10px;
+}
+.pageinfo {
+    font-size: 9px;
+    float: right;
+    color: #555;
+    margin: 20px 10px 20px 10px;
+    text-shadow: 1px 1px 1px #FFF;
+    clear: both;
+}
+
+.pagebutton {
+    font-size: 1em;
+    padding: 6px 10px;
+    margin: 10px;
+    background: #DDD;
+    border: 1px solid #AAA;
+    color: #444;
+    /*-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;*/
+}
+
+/* CALENDAR */
+tbody td {
+    background: #EEE;
+    text-align: right;
+    width: 50px;
+    border: 2px solid #FFF;
+    padding: 5px;
+}
+
+tbody tr .month {
+    font-size: 1.6em;
+    font-weight: normal;
+    background: #999;
+    font-family: "SansationRegular";
+    color: #FFF;
+    padding: 10px;
+}
+
+th.mon, th.tue, th.wed, th.thu, th.fri, th.sat, th.sun {
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    background: #CCC;
+    text-align: left;
+    font-size: 1.2em;
+    padding-left: 15px;
+    border: 2px solid #FFF;
+}
+
+td.mon, td.tue, td.wed, td.thu, td.fri, td.sat, td.sun {
+    font-size: 1.3em;
+    padding: 15px;
+}
+
+td.mon:hover, td.tue:hover, td.wed:hover, td.thu:hover, td.fri:hover, td.sat:hover, td.sun:hover {
+    background: #FFF;
+}
+
+td.filled ul li {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+td.filled ul li a {
+    color: #666;
+    text-decoration: underline;
+    font-size: 0.8em;
+}
+
+.noday {
+    background: #FAFAFA;
+}
+
+.filled {
+    background: #DDF;
+}
+
+.today {
+    background: #FFA;
+    border: 3px solid #DD0;
+}
+/* END CALENDAR */
+
+/* DEBATE */
+.specialmargin {
+    width: 90%;
+    padding: 1% 4%;
+    background: #444;
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+    padding: 40px 4.52%;
+    overflow: hidden;
+}
+
+#debate, #debate td {
+    border-style: none;
+}
+
+#debate td, th {
+  	border-width: 1px;
+	border-spacing: 0px;
+	border-style: inset;
+	border-color: #CCC;
+	border-collapse: collapse;
+}
+
+tbody td {
+    width: 0;
+}
+
+tbody td.criteria-title, tbody th.criteria-title {
+    width: 160px;
+}
+
+.handler {
+    float: left;
+    height: 10px;
+    width: 110px;
+    background-color: #867794;
+    margin: -5px 0px 0px -5px;
+}
+
+.deletenote {
+    float: right;
+    background: #F00;
+    border: 1px solid #666;
+    height: 8px;
+    width: 8px;
+    line-height: 6px;
+}
+
+.note, .note-alpha {
+    background-color: #dbdbfb; /*#b9a6cf; /*url('../assets/note.png');*/
+    font-size: 0.8em;
+    width: 100px;
+    height: 70px;
+    float: left;
+    margin: 5px;
+    padding: 5px;
+    -webkit-box-shadow: 0 2px 12px rgba(128,128,128,.5);
+    -moz-box-shadow: 0 2px 12px rgba(128,128,128,.5);
+    box-shadow: 0 1px 1px #888;
+    /*-webkit-transform: rotate(-2deg);
+    -moz-transform: rotate(-2deg);
+    -o-transform: rotate(-2deg);*/
+}
+
+#debate th {
+    border: none;
+}
+
+.note-text {
+    font-size: 1em;
+}
+
+.mine {
+    background-color: #CCC; /*#FFFF99;*/
+}
+
+.note-alpha {
+    opacity: 0.5;
+}
+
+tbody * ul {
+    width: 100%;
+    min-height: 50px;
+    min-width: 50px;
+}
+
+#debate td, #debate th {
+    vertical-align: middle;
+    text-align: center;
+}
+
+#new-column-btn, #new-row-btn, #del-column-btn, #del-row-btn {
+    margin-right: 5px;
+}
+
+#contenttitles h2 {
+  margin-bottom: 20px;
+}
+
+
+#new-column-btn, #del-column-btn {
+    float: right;
+}
+
+.note textarea {
+    width: 80px;
+    height: 70px;
+    background: transparent;
+    border: none;
+    color: #000;
+}
+
+table .criteria-title {
+    width: 100px;
+}
+
+#debate td:first-child {
+}
+
+.debate-ttitle {
+    margin: 1px -10px;
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+    padding: 40px 10px;
+    width: 150px;
+    background: #EEE;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.criteria-title {
+    padding: 5px 0px 5px 0px;
+}
+
+#debate thead th {
+    padding: 5px 5px 5px 5px;
+    background: #EEE;
+    border-top: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+    width: 150px;
+}
+
+#debate input {
+    width: 100px;
+    text-align: center;
+    margin: 0;
+}
+
+#debate-ttitle input {
+}
+
+#corner.corner-criteria {
+    background: transparent;
+    border: none;
+}
+
+.criteria-vtitle {
+    background-color: #eee;
+    border-top:1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    width: 201px;
+    height:42px;
+}
+
+.delete-row {
+}
+
+#buttons {
+    background: transparent;
+}
+
+#debate3 {
+    margin-bottom: 30px;
+}
+
+table {
+    border-radius:10px;
+    -webkit-border-radius: 0 0 10px 10px;
+    -moz-border-radius: 0 0 10px 10px;
+}
+
+.criteria-htitle {
+    height: 125px;
+    vertical-align: middle;
+    border: 0 !important;
+    background: url('/static/assets/table/row.png') no-repeat left center;
+}
+
+#contenttitles {
+    margin-bottom: 20px;
+}
+
+/* Hide the links added by the jquery plugin - we will use our own */
+#debate table a.delete-row, #debate table a.add-row {
+    display:none;
+}
+/* END DEBATE */

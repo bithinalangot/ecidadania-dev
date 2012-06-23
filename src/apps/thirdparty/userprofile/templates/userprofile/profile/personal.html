@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Edit your personal information" %}{% endblock %}
+
+{% block content %}
+    
+    <div class="row">
+        <div class="span12">
+            <h3>{% trans "Edit your personal information" %}</h3>
+            
+	        <form action="{{ request.path_info }}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                {{ form.non_field_errors }}
+        
+                {% for field in form %}
+                <div class="clearfix"> 
+                    {{ field.errors }}
+                    <label for="prependedInput">{{ field.label }}</label> 
+                    <div class="input"> 
+                        {{ field }}
+                        <span class="help-inline">{{ field.help_text }}</span>
+                    </div> 
+                </div>
+                {% endfor %}
+	            
+	            <a href="{% url 'profile_overview' %}" class="btn">&laquo; {% trans "Go back" %}</a>
+	            <input type="submit" class="btn btn-primary" value="{% trans 'Save' %}" />
+	            <a href="{% url 'profile_delete' %}" class="btn btn-danger" style="float:right;">{% trans "Delete profile" %}</a>
+	        </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% load i18n %}
+
+<h4>{% trans "Comments" %}</h4>
+{% for comment in comment_list %}
+    <div class="comment">
+        <div id="c{{ comment.id }}" class="comment_data">
+            {{ comment.submit_date|date:"F j, Y G:i"|capfirst }} - <a href="/accounts/{{ comment.name }}">{{ comment.name }}</a> {% trans "said" %}:
+        </div>
+        <div class="comment_text">
+            <p>{{ comment.comment }}</p>
+        </div>
+    </div>
+{% endfor %}
