@@ -47,8 +47,21 @@
                     icon:"alert.png"
                 });
             })
-         }
+        }
     </script>
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <script type="text/javascript">
+        var map, layer;
+        function init(){
+            map = new OpenLayers.Map('map');
+            layer = new OpenLayers.Layer.OSM( "Simple OSM Map");
+            map.addLayer(layer);
+            map.setCenter(
+                new OpenLayers.LonLat(-71.147, 42.472).transform(
+                new OpenLayers.Projection("EPSG:4326"),
+                map.getProjectionObject()
+            ), 12);    
+        }                                                                                                                                   </script>
 {% endblock %}
 
 {% block space %}
@@ -63,18 +76,23 @@
                 <div class="span1">
                     <p style="line-height:30px;font-size:30px;margin-left:5px;">{{ support_votes_count }}</p>
                     <button style="margin-left:-15px;" onclick="upvote({{ proposal.id }})" class="btn btn-small" {% if user in proposal.support_votes.all %}disabled="disabled"{% endif %}>{% trans "support" %}</button>
+                    <button style="margin-left:-15px;" onclick="init();" class="btn btn-small">Map</button>
                 </div>
                 <div class="span10">
                     <div class="proposal-title">{{ proposal.title }}</div>
                     <div class="proposal-message">{{ proposal.description|safe }}</div>
                     <div class="proposal-creator">{% trans "proposed by " %} {{ proposal.author }} {% trans " at " %} {{ proposal.pub_date }}</div>
+                      
                 </div>
             </div>
-
+            
+            <hr />
             <p>{% render_comment_list for proposal %}</p>
       
             <p>{% render_comment_form for proposal%}</p>
         </div>
     </div>
+    <div class="row" id="map">Amma</div>
+
 
 {% endblock %}
